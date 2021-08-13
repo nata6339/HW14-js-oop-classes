@@ -34,11 +34,12 @@ class Task extends ToDoList{
     changeStatus() {
         return this.status = !this.status;
     }
-    findTasks(){
-        this.todos.includes('salt');
+    findTasks(salt){
+        return this.todos.filter(function(listItem){
+            return listItem.task.includes('salt');
+        })
     }
 }
-
 
 let task1 = new Task('to buy milk', true, 'task1')
 let task2 = new Task('to buy bread', true, 'task2')
@@ -52,7 +53,8 @@ toDoList.addTodo(task3)
 toDoList.addTodo(task4)
 toDoList.removeTodo(task2.id)
 console.log(toDoList.todos)
-console.log(toDoList.showCompletedTasks());
-console.log(toDoList.showInProgressTask());
-console.log(task4.changeStatus());
-console.log(toDoList.findTasks());
+// console.log(toDoList.showCompletedTasks());
+// console.log(toDoList.showInProgressTask());
+task4.changeStatus();
+task3.changeStatus();
+toDoList.findTasks();
