@@ -20,24 +20,23 @@ class ToDoList {
             return listItem.status === false;
         })
     }
-}
-
-let toDoList = new ToDoList()
-
-class Task extends ToDoList{
-    constructor(task, status, id){
-        super();
-        this.task = task
-        this.status = status
-        this.id = id
-    }
-    changeStatus() {
-        return this.status = !this.status;
+    changeStatus(task) {
+        return task.status = !task.status;
     }
     findTasks(search){
         return this.todos.filter(function(listItem){
             return listItem.task.includes(search);
         })
+    }
+}
+
+let toDoList = new ToDoList()
+
+class Task {
+    constructor(task, status, id){
+        this.task = task
+        this.status = status
+        this.id = id
     }
 }
 
@@ -51,10 +50,9 @@ toDoList.addTodo(task1)
 toDoList.addTodo(task2)
 toDoList.addTodo(task3)
 toDoList.addTodo(task4)
-toDoList.removeTodo(task2.id)
+// toDoList.removeTodo(task2.id)
 console.log(toDoList.todos)
 // console.log(toDoList.showCompletedTasks());
 // console.log(toDoList.showInProgressTask());
-task4.changeStatus();
-task3.changeStatus();
-toDoList.todos.findTasks('salt');
+toDoList.changeStatus(task4);
+console.log(toDoList.findTasks('sugar'));
