@@ -34,9 +34,9 @@ class Task extends ToDoList{
     changeStatus() {
         return this.status = !this.status;
     }
-    findTasks(salt){
+    findTasks(search){
         return this.todos.filter(function(listItem){
-            return listItem.task.includes('salt');
+            return listItem.task.includes(search);
         })
     }
 }
@@ -57,4 +57,4 @@ console.log(toDoList.todos)
 // console.log(toDoList.showInProgressTask());
 task4.changeStatus();
 task3.changeStatus();
-toDoList.findTasks();
+toDoList.todos.findTasks('salt');
